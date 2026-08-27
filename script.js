@@ -1,33 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu Responsivo Toggle
+
+    // 1. Menu Responsivo Toggle
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
 
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
 
-    // Fechar menu mobile ao clicar em um link
+    // 2. Fechar menu mobile ao clicar em um link
     document.querySelectorAll('.nav a').forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
         });
     });
 
-
-/* Prepara a imagem para girar e indica ao usuário que ela é clicável */
-.card-img {
-    transition: transform 0.6s ease-in-out;
-    cursor: pointer;
-};
-
-/* Classe aplicada via JavaScript para fazer o giro de 360 graus */
-.rotate-effect {
-    transform: rotate(360deg);
-};
-
-    
-    // Rolar suavemente para as seções
+    // 3. Rolar suavemente para as seções
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -40,22 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Seleciona todas as imagens com a classe .card-img
+    // 4. Efeito de rotação nas imagens ao clicar
     const cardImages = document.querySelectorAll('.card-img');
 
     cardImages.forEach(img => {
         img.addEventListener('click', () => {
-            // Se já estiver girando, evita múltiplos cliques seguidos
+            // Evita cliques seguidos durante a animação
             if (img.classList.contains('rotate-effect')) return;
 
-            // Adiciona a classe da animação
+            // Adiciona a classe que executa a rotação no CSS
             img.classList.add('rotate-effect');
 
-            // Remove a classe após 600ms (tempo da animação) para poder girar de novo
+            // Remove a classe após 600ms para permitir novos giros
             setTimeout(() => {
                 img.classList.remove('rotate-effect');
             }, 600);
