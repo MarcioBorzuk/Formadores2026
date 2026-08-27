@@ -42,4 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
 
+    // Seleciona todas as imagens com a classe .card-img
+    const cardImages = document.querySelectorAll('.card-img');
+
+    cardImages.forEach(img => {
+        img.addEventListener('click', () => {
+            // Se já estiver girando, evita múltiplos cliques seguidos
+            if (img.classList.contains('rotate-effect')) return;
+
+            // Adiciona a classe da animação
+            img.classList.add('rotate-effect');
+
+            // Remove a classe após 600ms (tempo da animação) para poder girar de novo
+            setTimeout(() => {
+                img.classList.remove('rotate-effect');
+            }, 600);
+        });
+    });
+
+});
