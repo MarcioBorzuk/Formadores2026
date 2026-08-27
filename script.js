@@ -28,3 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function rotacionarImagem(elemento) {
+    // Adiciona a classe que faz girar
+    elemento.classList.add('rotate-effect');
+    
+    // Remove a classe após a animação (600ms) para permitir clicar e girar de novo
+    setTimeout(() => {
+        elemento.classList.remove('rotate-effect');
+    }, 600);
+}
