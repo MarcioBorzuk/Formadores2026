@@ -14,6 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+/* Prepara a imagem para girar e indica ao usuário que ela é clicável */
+.card-img {
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+};
+
+/* Classe aplicada via JavaScript para fazer o giro de 360 graus */
+.rotate-effect {
+    transform: rotate(360deg);
+};
+
+    
     // Rolar suavemente para as seções
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -29,12 +42,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function rotacionarImagem(elemento) {
-    // Adiciona a classe que faz girar
-    elemento.classList.add('rotate-effect');
-    
-    // Remove a classe após a animação (600ms) para permitir clicar e girar de novo
-    setTimeout(() => {
-        elemento.classList.remove('rotate-effect');
-    }, 600);
-}
+
