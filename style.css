@@ -228,4 +228,16 @@ footer {
     .brand h1 {
         font-size: 1rem;
     }
+
+/* Transição suave para a imagem do card */
+.card-img {
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+/* Classe que aplica a rotação completa de 360° */
+.rotate-effect {
+    transform: rotate(360deg);
+}
+    
 }
